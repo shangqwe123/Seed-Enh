@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEED-ENH Demo Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SEED-ENH: Generative Speech Enhancement via Speech Decoupling and Flow-Matching Based Context Learning</h1>
+
+    <div class="section">
+        <h2>1. Comparison of Speech Enhancement Method</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Noisy</th>
+                    <th>Clean</th>
+                    <th>Enhanced</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>FullSubNet</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/noisy.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/1_enhanced.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>TFGridNet</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/noisy.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/2_enhanced.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SGMSE</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/noisy.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/3_enhanced.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>StoRM</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/noisy.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/4_enhanced.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SB</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/noisy.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/5_enhanced.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>AnyEnhance</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/noisy.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/6_enhanced.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>FlowSE</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/noisy.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/7_enhanced.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Seed-Enh</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/noisy.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s1/8_enhanced.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="section">
+        <h2>2. Performance Comparison for Denoising and Conversion</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Condition</th>
+                    <th>Source WAV</th>
+                    <th>Reference WAV</th>
+                    <th>Generated WAV</th>
+                    <th>Clean WAV</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Seed-Enh (Denoise) with Noisy Reference</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/1-source.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/1-reference.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/1-conversion.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/1-clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audi>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Seed-Enh (Denoise) with Clean Reference</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/2-source.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/2-reference.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/2-conversion.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/2-clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audi>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Seed-Enh (Conversion) with Noisy Reference</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/3-source.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/3-reference.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/3-conversion.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/3-clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audi>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Seed-Enh (Conversion) with Clean Reference</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/4-source.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/4-reference.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/4-conversion.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/4-clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audi>
+                    </td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>Seed-VC (Conversion) with Noisy Reference</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/5-source.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/5-reference.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/5-conversion.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/5-clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audi>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Seed-VC (Conversion) with Clean Reference</td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/6-source.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/6-reference.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/6-conversion.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td>
+                        <audio controls>
+                            <source src="audios/s2/6-clean.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audi>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
